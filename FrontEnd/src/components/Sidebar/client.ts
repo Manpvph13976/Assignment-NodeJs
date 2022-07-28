@@ -42,7 +42,7 @@ const ClientSidebar = {
             </li>
         </ul>
         </div>
-        <div ><img src="./public/images/banner.png " class="max-w-[70%] ml-20 my-5" alt=""></div>
+        <div ><img src="./public/images/banner.png " class="max-w-[70%] mx-[100px] my-5" alt=""></div>
         </div>
         `
     }
