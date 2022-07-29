@@ -2,37 +2,37 @@ import mongoose from "mongoose";
 import { createHmac } from "crypto";
 
 const userSchema = mongoose.Schema(
-    {
-        email: {
-            type: String,
-            required: true,
-        },
-        sdt: {
-            type: Number,
-        },
-        password: {
-            type: String,
-            minlength: 6,
-        },
-        role: {
-            type: Number,
-            default: 0,
-        },
+  {
+    email: {
+      type: String,
+      required: true,
     },
-    { timestamps: true }
+    sdt: {
+      type: Number,
+    },
+    password: {
+      type: String,
+      minlength: 6,
+    },
+    role: {
+      type: Number,
+      default: 0,
+    },
+  },
+  { timestamps: true }
 );
 userSchema.methods = {
-    encrytPassword: (password) => {
-        if (!password) return;
-        try {
-            return createHmac("sha256", "nhom3").update(password).digest("hex");
-        } catch (error) {
-            console.log(error);
-        }
-    },
+  encrytPassword: (password) => {
+    if (!password) return;
+    try {
+      return createHmac("sha256", "nhom3").update(password).digest("hex");
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };
 userSchema.pre("save", function (next) {
-    this.password = this.encrytPassword(this.password);
-    next();
+  this.password = this.encrytPassword(this.password);
+  next();
 });
 export default mongoose.model("User", userSchema);
