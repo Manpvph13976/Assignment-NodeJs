@@ -22,6 +22,9 @@ const userSchema = mongoose.Schema(
   { timestamps: true }
 );
 userSchema.methods = {
+  authenticate(password) {
+    return this.password === this.encrytPassword(password);
+  },
   encrytPassword: (password) => {
     if (!password) return;
     try {
