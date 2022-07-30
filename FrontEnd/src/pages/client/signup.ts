@@ -31,17 +31,9 @@ const Signup = {
           >
             Đăng Ký
           </button>
-          <p class="text-center my-4 font-normal">Hoặc đăng nhập bằng</p>
-          <div class="flex justify-center items-center space-x-4">
-            <a href="#"
-              ><img src="./public/images/face.png" alt="" class="w-[80%]"
-            /></a>
-            <a href="#"
-              ><img src="./public/images/gg.png" alt="" class="w-[80%]"
-            /></a>
-          </div>
+          
         </form>
-        <div class="flex justify-center items-center pb-24">
+        <div class="flex justify-center items-center ">
           <img src="./public/images/logo.png" alt="" />
         </div>
       </div>
