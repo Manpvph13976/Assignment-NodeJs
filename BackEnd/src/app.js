@@ -2,14 +2,14 @@ import express from "express";
 import "dotenv/config";
 import mongoose from "mongoose";
 import routerProduct from "./routes/product";
-import routerCategory from "./routes/category"
-import routerAuth from "./routes/auth"
+import routerCategory from "./routes/category";
+import routerAuth from "./routes/user";
 
 const app = express();
 app.use(express.json());
 app.use("/api", routerProduct);
 app.use("/api", routerCategory);
-app.use("/api", routerAuth)
+app.use("/api", routerAuth);
 
 mongoose.connect("mongodb://localhost:27017/nhom3", () => {
   console.log("successfully");
