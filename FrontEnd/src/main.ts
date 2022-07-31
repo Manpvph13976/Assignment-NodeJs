@@ -22,6 +22,9 @@ router.on({
     },
     "/signin":()=>{
         print(Signin)
+    },
+    "/admin":()=>{
+        print(AdminPage)
     }
 })
 router.resolve()
