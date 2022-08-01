@@ -5,6 +5,7 @@ import Detail from './pages/client/detail'
 import Signup from './pages/client/signup'
 import Signin from './pages/client/signin'
 import AdminPage from './pages/admin'
+import EditProductPage from './pages/admin/edit'
 import AddProductPage from './pages/admin/add'
 const router = new Navigo('/', {linksSelector: "a"})
 
@@ -27,6 +28,8 @@ router.on({
     "/admin":()=>{
         print(AdminPage)
     },
+    "/admin/edit":()=>{
+        print(EditProductPage)
     "/admin/add":()=>{
         print(AddProductPage)
     }
