@@ -3,18 +3,28 @@ import mongoose from "mongoose";
 const productSchema = mongoose.Schema({
   name: {
     type: String,
-    required: true,
   },
-  price: {
+  originalPrice: {
     type: Number,
-    required: true,
   },
-  desc: {
+  image: {
     type: String,
   },
   category: {
     type: mongoose.ObjectId,
     ref: "category",
+  },
+  feture: {
+    type: String,
+  },
+  description: {
+    type: String,
+  },
+  saleOffPrice: {
+    type: Number,
+  },
+  shortDescription: {
+    type: String,
   },
 });
 
