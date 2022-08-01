@@ -1,0 +1,49 @@
+{
+  "users": [],
+  "products": [
+    {
+      "id": 1,
+      "name": "Xiaomi Redmi Note 11 Pro",
+      "originalPrice": "7.490.000 ",
+      "imageUrl": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658380038/anhhtus/ml56bewffp8uosnb21ex.png",
+      "saleOffPrice": "6.450.000",
+      "category": "oppo",
+      "feature": "bbbbbbbbbb",
+      "description": "cccccccccc",
+      "shortDescription": "aaaaaaaaa"
+    },
+    {
+      "id": 2,
+      "name": "OPPO Reno6 Z 5G",
+      "originalPrice": "9.490.000 ",
+      "imageUrl": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658334469/anhhtus/xbwkdjuguzukkvikja4t.png",
+      "saleOffPrice": "6.790.000 ",
+      "category": "oppo",
+      "feature": "cccccccc",
+      "description": "bbbbbbbbb",
+      "shortDescription": "aaaaaaa"
+    },
+    {
+      "id": 3,
+      "name": "SamSung",
+      "originalPrice": "123.124",
+      "imageUrl": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658557602/anhhtus/nynebhiijy7pm2yequzm.png",
+      "saleOffPrice": "111.111",
+      "category": "iphone",
+      "feature": "bbbbbbbb",
+      "description": "ccccccccc",
+      "shortDescription": "aaaaaa"
+    },
+    {
+      "id": 5,
+      "name": "Asus1",
+      "originalPrice": "123.124aaaaa",
+      "imageUrl": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658558710/anhhtus/kux4xgtsxtbz9vj1wbxw.png",
+      "saleOffPrice": "789",
+      "category": "iphone",
+      "feature": "aaaaaa",
+      "description": "bbbbbb",
+      "shortDescription": "cccccccc"
+    }
+  ]
+}
