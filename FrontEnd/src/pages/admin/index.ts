@@ -1,8 +1,12 @@
+import { getAll } from "../../api/product"
 import AdminHeader from "../../components/Header/admin"
 import Sidebar from "../../components/Sidebar/admin"
+import Product from "../../model/product"
 
 const AdminPage = {
-    render:  () => {
+    render: async () => {
+        const res = await getAll()
+        const data: Product[] = res.data
         return /*html*/`
         ${AdminHeader.render()}
         <div class="flex mt-4 divide-x">
@@ -47,13 +51,14 @@ const AdminPage = {
                     </tr>
                     </thead>
                     <tbody>
+                        ${data.map((item, index) => /*html*/`
                         <tr>
-                            <td class="border text-center">1</td>
-                            <td class="border">Product A</td>
-                            <td class="border">123.123</td>
-                            <td class="border">123.123</td>
-                            <td class="border"><img src=""/></td>
-                            <td class="border">mô tả</td>
+                            <td class="border text-center">${index + 1}</td>
+                            <td class="border">${item.name}</td>
+                            <td class="border">${item.originalPrice}</td>
+                            <td class="border">${item.saleOffPrice}</td>
+                            <td class="border"><img src="${item.imageUrl}"/></td>
+                            <td class="border">${item.description}</td>
                             <td class="border">
                             <button class="btn btn-remove ml-4"><svg class="mx-auto" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16 15.5C17.7849 15.5 19.2778 14.137 19.464 12.3681C19.4897 12.1245 19.4897 11.8755 19.464 11.6319C19.2778 9.86302 17.7849 8.5 16 8.5C14.2152 8.5 12.7222 9.86302 12.536 11.6319C12.5104 11.8755 12.5104 12.1245 12.536 12.3681C12.7222 14.137 14.2152 15.5 16 15.5Z" fill="black"/>
@@ -66,6 +71,7 @@ const AdminPage = {
                                 </svg></a>
                             </td>
                         </tr>
+                    `).join('')}
                     </tbody>
                 </table>         
             </div>

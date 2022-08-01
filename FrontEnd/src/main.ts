@@ -30,6 +30,7 @@ router.on({
     },
     "/admin/edit":()=>{
         print(EditProductPage)
+    },
     "/admin/add":()=>{
         print(AddProductPage)
     }
