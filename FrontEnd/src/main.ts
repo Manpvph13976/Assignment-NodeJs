@@ -7,31 +7,31 @@ import Signin from './pages/client/signin'
 import AdminPage from './pages/admin'
 import EditProductPage from './pages/admin/edit'
 import AddProductPage from './pages/admin/add'
-const router = new Navigo('/', {linksSelector: "a"})
+const router = new Navigo('/', { linksSelector: "a" })
 
-const print = async (component)=>{
+const print = async (component) => {
     document.getElementById('app').innerHTML = await component.render()
 }
 router.on({
-    "/":()=>{
+    "/": () => {
         print(HomePage)
     },
-    "/detail":()=>{
+    "/detail": () => {
         print(Detail)
     },
-    "/signup":()=>{
+    "/signup": () => {
         print(Signup)
     },
-    "/signin":()=>{
+    "/signin": () => {
         print(Signin)
     },
-    "/admin":()=>{
+    "/admin": () => {
         print(AdminPage)
     },
-    "/admin/edit":()=>{
+    "/admin/edit": () => {
         print(EditProductPage)
     },
-    "/admin/add":()=>{
+    "/admin/add": () => {
         print(AddProductPage)
     }
 })
