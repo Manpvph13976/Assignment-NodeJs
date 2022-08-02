@@ -4,9 +4,10 @@ import mongoose from "mongoose";
 import routerProduct from "./routes/product";
 import routerCategory from "./routes/category";
 import routerAuth from "./routes/user";
-
+import cors from "cors"
 const app = express();
 app.use(express.json());
+app.use(cors());
 app.use("/api", routerProduct);
 app.use("/api", routerCategory);
 app.use("/api", routerAuth);

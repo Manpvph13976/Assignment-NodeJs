@@ -2,7 +2,7 @@ import AdminHeader from "../../components/Header/admin"
 import Sidebar from "../../components/Sidebar/admin"
 
 const AddProductPage = {
-    render:() => {
+    render: () => {
         return /*html*/`
         ${AdminHeader.render()}
         <div class="flex mt-4 divide-x">
