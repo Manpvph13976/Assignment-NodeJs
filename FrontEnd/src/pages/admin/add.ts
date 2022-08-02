@@ -1,5 +1,8 @@
+import { upload } from "../../api/image"
+import { add } from "../../api/product"
 import AdminHeader from "../../components/Header/admin"
 import Sidebar from "../../components/Sidebar/admin"
+import Product from "../../model/product"
 
 const AddProductPage = {
     render: () => {
@@ -75,6 +78,48 @@ const AddProductPage = {
             </div>
         </div>
         `
+    },
+    afterRender: async () => {
+        const addProductBtn = document.querySelector('#add-product-btn')
+        const inputFile = document.querySelector('#input-file')
+        const previewImage = document.querySelector('#preview-image')
+
+        addProductBtn?.addEventListener('click', async () => {
+            const name = document.querySelector('#name')?.value
+            const originalPrice = document.querySelector('#originalPrice')?.value
+            const imageUrl = previewImage?.src
+            const saleOffPrice = document.querySelector('#saleOffPrice')?.value
+            const category = document.querySelector('#category')?.value
+            const feature = document.querySelector('#feature')?.value
+            const description = document.querySelector('#description')?.value
+            const shortDescription = document.querySelector('#shortDescription')?.value 
+            
+            const product = new Product(name,originalPrice,imageUrl,saleOffPrice,category,feature,description,shortDescription)
+            try {
+                const data = await add(product)
+                alert('Thêm mới thành công')
+                location.href = "/admin"
+            } catch(err) {
+                console.log(err)
+            }
+        })
+
+        inputFile?.addEventListener('change', async (e) => {
+            const file = e.target.files[0]
+            const reader = new FileReader()
+            reader.readAsDataURL(file)
+            reader.onloadend = async () => {
+                 try {
+                    const res = await upload(reader.result)
+                    const data = res.data
+                    previewImage.src = data.url
+                 } catch(err) {
+                    console.log(err)
+                 }
+            }
+        })
+    
+
     }
 }
 

@@ -9,8 +9,11 @@ import EditProductPage from './pages/admin/edit'
 import AddProductPage from './pages/admin/add'
 const router = new Navigo('/', { linksSelector: "a" })
 
-const print = async (component) => {
-    document.getElementById('app').innerHTML = await component.render()
+const print = async (component ,id) => {
+    document.getElementById('app').innerHTML = await component.render(id)
+    if(component.afterRender) {
+        component.afterRender(id)
+      }
 }
 router.on({
     "/": () => {
