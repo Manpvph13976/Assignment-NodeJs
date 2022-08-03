@@ -1,7 +1,7 @@
 class Product {
     name: string;
     originalPrice: number;
-    imageUrl: string;
+    image: string;
     saleOffPrice?: number;
     category?: string;
     feature?: string;
@@ -10,7 +10,7 @@ class Product {
     constructor(
         name: string,
         originalPrice: number,
-        imageUrl: string,
+        image: string,
         saleOffPrice?:number,
         category?: string,
         feature?: string,
@@ -19,7 +19,7 @@ class Product {
     ) {
         this.name = name;
         this.originalPrice = originalPrice;
-        this.imageUrl = imageUrl;
+        this.image = image;
         this.saleOffPrice = saleOffPrice;
         this.category = category;
         this.feature = feature;

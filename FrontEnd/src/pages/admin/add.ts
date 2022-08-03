@@ -55,10 +55,10 @@ const AddProductPage = {
                     <div class="flex flex-col mt-4">
                         <label for="">Danh mục:</label>
                         <select name="" id="category" class="w-full border rounded-sm h-10">
-                            <option value="iphone">Iphone</option>
-                            <option value="samsung">Samsung</option>
-                            <option value="xiaomi">Xiaomi</option>
-                            <option value="oppo">Oppo</option>
+                            <option value="62ea367bc462014774f577aa">Iphone</option>
+                            <option value="62ea3696c462014774f577ad">Samsung</option>
+                            <option value="62ea369ac462014774f577af">Xiaomi</option>
+                            <option value="62ea369dc462014774f577b1">Oppo</option>
                         </select>
                     </div>
                     <div class="flex flex-col mt-4">
@@ -87,14 +87,13 @@ const AddProductPage = {
         addProductBtn?.addEventListener('click', async () => {
             const name = document.querySelector('#name')?.value
             const originalPrice = document.querySelector('#originalPrice')?.value
-            const imageUrl = previewImage?.src
+            const image = previewImage?.src
             const saleOffPrice = document.querySelector('#saleOffPrice')?.value
             const category = document.querySelector('#category')?.value
             const feature = document.querySelector('#feature')?.value
             const description = document.querySelector('#description')?.value
             const shortDescription = document.querySelector('#shortDescription')?.value 
-            
-            const product = new Product(name,originalPrice,imageUrl,saleOffPrice,category,feature,description,shortDescription)
+            const product = new Product(name,originalPrice,image,saleOffPrice,category,feature,description,shortDescription)
             try {
                 const data = await add(product)
                 alert('Thêm mới thành công')
