@@ -5,8 +5,8 @@ import Detail from './pages/client/detail'
 import Signup from './pages/client/signup'
 import Signin from './pages/client/signin'
 import AdminPage from './pages/admin'
-import EditProductPage from './pages/admin/edit'
 import AddProductPage from './pages/admin/add'
+import EditProductPage from './pages/admin/edit'
 const router = new Navigo('/', { linksSelector: "a" })
 
 const print = async (component ,id) => {
@@ -31,8 +31,9 @@ router.on({
     "/admin": () => {
         print(AdminPage)
     },
-    "/admin/edit": () => {
-        print(EditProductPage)
+    "/admin/edit/:id": (data) => {
+        const id=data.data.id
+        print(EditProductPage,id)
     },
     "/admin/add": () => {
         print(AddProductPage)
