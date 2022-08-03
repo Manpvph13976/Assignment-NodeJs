@@ -14,7 +14,7 @@ const productSchema = mongoose.Schema({
     type: mongoose.ObjectId,
     ref: "category",
   },
-  feture: {
+  feature: {
     type: String,
   },
   description: {

@@ -42,8 +42,8 @@ const AdminPage = {
                     <tr>
                         <th class="w-[5%] border">#</th>
                         <th class="w-[20%] border">Tên sản phẩm</th>
-                        <th class="w-[10%] border">Gía</th>
-                        <th class="w-[10%] border">Gía sale</th>
+                        <th class="w-[10%] border">Giá</th>
+                        <th class="w-[10%] border">Giá sale</th>
                         <th class="w-[15%] border">Ảnh</th>
                         <th class="w-[30%] border">Mô tả</th>
                         <th class="w-[5%] border text-center">Xóa</th>
@@ -57,7 +57,7 @@ const AdminPage = {
                             <td class="border">${item.name}</td>
                             <td class="border">${item.originalPrice}</td>
                             <td class="border">${item.saleOffPrice}</td>
-                            <td class="border"><img src="${item.imageUrl}"/></td>
+                            <td class="border"><img src="${item.image}"/></td>
                             <td class="border">${item.description}</td>
                             <td class="border">
                             <button class="btn btn-remove ml-4"><svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
