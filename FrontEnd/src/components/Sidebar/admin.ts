@@ -1,6 +1,6 @@
 const Sidebar = {
-    render: () => {
-        return /*html*/`
+  render: () => {
+    return /*html*/`
         <div class="max-w-[80%]">
         <ul>
         <li class="flex items-center hover:bg-blue-300 rounded-md">
@@ -8,6 +8,12 @@ const Sidebar = {
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
           </svg>
           <a href="/admin">Sản phẩm chung</a>
+        </li>
+        <li class="flex items-center hover:bg-blue-300 rounded-md">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-4" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+      </svg>
+          <a href="/category">Danh Mục</a>
         </li>
         <li class="flex items-center hover:bg-blue-300 rounded-md mt-2">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -30,7 +36,7 @@ const Sidebar = {
       </ul>
     </div>
         `
-    }
+  }
 }
 
 export default Sidebar;
