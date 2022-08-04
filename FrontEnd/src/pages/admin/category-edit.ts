@@ -11,18 +11,18 @@ const EditCategoryPage = {
 
         return /*html*/`
         ${AdminHeader.render()}
-        <div class="flex mt-4 divide-x">
+        <div class="flex mt-4 divide-x mx-10">
             <div class="w-[250px] flex-none">
                 ${Sidebar.render()}
             </div>
             <div class="grow">
-                <h3 class="font-bold text-2xl">Cập nhật sản phẩm</h3>
-                <div class="col-span-2">
+                <h3 class="font-bold text-2xl">Cập nhật Danh Mục</h3>
+                <div class="col-span-2 mx-20">
                     <div class="flex flex-col mt-4">
-                        <label for="">Tên sản phẩm:</label>
-                        <input id="name" type="text" placeholder="Tên sản phẩm" value="${categorys.category.name}" class="w-full border rounded-sm h-10">
+                        <label for="">Tên Danh Mục:</label>
+                        <input id="name" type="text" placeholder="Tên Danh Mụcmax-w-7xl mx-auto px-5" value="${categorys.category.name}"class="w-[50%] border rounded-sm mt-3 h-10">
                     </div>
-                    <button class="border rounded-md bg-blue-400 mt-3 text-white" id="edit-category-btn">Cập nhật</button>
+                    <button class="border rounded-md bg-blue-400 mt-4 text-white" id="edit-category-btn">Cập nhật</button>
                 </div>
                 
                 </div>

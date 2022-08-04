@@ -10,17 +10,17 @@ const Detail = {
         return (
             /*html*/`
                 ${ClientHeader.render()}
-                <div>
-                    <h1 class="text-lg m-5 font-bold">${product.name}</h1>
+                <div class="max-w-7xl mx-auto px-5">
+                    <h1 class="m-5 font-bold  text-2xl">${product.name}</h1>
                     <hr>
                     <div class="flex mt-10">
                     <div class="w-[600px] mx-20">
                         <img src="${product.image}" class="w-[300px]" alt="">
                     </div>
                     <div>
-                        <label class="text-red-700 pr-4 text-lg">${product.saleOffPrice}₫</label><label class="text-gray-400 text-lg">${product.originalPrice}
+                        <label class="text-[#c40808] font-bold pr-4 text-xl">${product.saleOffPrice}₫</label><label class="text-gray-400 text-lg">${product.originalPrice}
                         ₫</label>
-                        <p> Mô tả ngắn: ${product.shortDescription}</p>
+                        <p class="mt-5 font-semibold"> Mô tả ngắn: ${product.shortDescription}</p>
                     </div>
                     </div>
                     <div class="flex">
