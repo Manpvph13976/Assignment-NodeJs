@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import routerProduct from "./routes/product";
 import routerCategory from "./routes/category";
 import routerAuth from "./routes/user";
-import cors from "cors"
+import cors from "cors";
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -12,7 +12,9 @@ app.use("/api", routerProduct);
 app.use("/api", routerCategory);
 app.use("/api", routerAuth);
 
-mongoose.connect("mongodb://localhost:27017/nhom3", () => {
+const uri =
+  "mongodb+srv://Manpvph13976:Manph13976@nodejs.eqapbqc.mongodb.net/NodeJs?retryWrites=true&w=majority";
+mongoose.connect(uri, () => {
   console.log("successfully");
 });
 
