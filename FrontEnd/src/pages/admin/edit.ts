@@ -29,7 +29,7 @@ const EditProductPage = {
                     </label>
 
                     <div class="mt-4">Sửa ảnh</div>
-                    <img id="preview-image" src="${products.imageUrl}" />
+                    <img id="preview-image" src="${products.image}" />
                     </div>
                     <label for="">Mô tả ngắn</label>
                     <textarea class="w-full border" id="shortDescription">${products.shortDescription}</textarea>
