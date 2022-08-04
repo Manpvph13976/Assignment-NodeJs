@@ -1,10 +1,14 @@
+import { getAll } from "../../api/product"
 import ClientFooter from "../../components/Footer/client"
 import ClientHeader from "../../components/Header/client"
 import ClientSidebar from "../../components/Sidebar/client"
+import Product from "../../model/product"
 
 
 const HomePage = {
-	render: () => {
+	render: async () => {
+        const res = await getAll()
+        const data: Product[] = res.data
 		return (
             /*html*/`
                 ${ClientHeader.render()}
@@ -12,36 +16,18 @@ const HomePage = {
                 <div class="product ">
                 <h1 class="ml-20 mt-10 text-lg ">ĐIỆN THOẠI NỔI BẬT NHẤT</h1>
                 <div class="grid grid-cols-5 gap-6 m-10">
-                <div>
-                    <img src="./public/images/iPhone 11 64GB I Chính hãng VNA.png"  class="mb-2" alt="">
-                    <p class="mb-2">iPhone 11 64GB I Chính hãng VNA</p>
-                    <label class="text-red-700 pr-4">10.790.000 ₫</label><label class="text-gray-400">18.000.000 ₫</label>
-                    <p class="bg-gray-100 p-3 mt-2">[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 1.000.000đ</p>
-                </div>
-                <div>
-                    <img src="./public/images/iPhone 11 64GB I Chính hãng VNA.png"  class="mb-2" alt="">
-                    <p class="mb-2">iPhone 11 64GB I Chính hãng VNA</p>
-                    <label class="text-red-700 pr-4">10.790.000 ₫</label><label class="text-gray-400">18.000.000 ₫</label>
-                    <p class="bg-gray-100 p-3 mt-2">[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 1.000.000đ</p>
-                </div>
-                <div>
-                    <img src="./public/images/iPhone 11 64GB I Chính hãng VNA.png"  class="mb-2" alt="">
-                    <p class="mb-2">iPhone 11 64GB I Chính hãng VNA</p>
-                    <label class="text-red-700 pr-4">10.790.000 ₫</label><label class="text-gray-400">18.000.000 ₫</label>
-                    <p class="bg-gray-100 p-3 mt-2">[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 1.000.000đ</p>
-                </div>
-                <div>
-                    <img src="./public/images/iPhone 11 64GB I Chính hãng VNA.png"  class="mb-2" alt="">
-                    <p class="mb-2">iPhone 11 64GB I Chính hãng VNA</p>
-                    <label class="text-red-700 pr-4">10.790.000 ₫</label><label class="text-gray-400">18.000.000 ₫</label>
-                    <p class="bg-gray-100 p-3 mt-2">[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 1.000.000đ</p>
-                </div>
-                <div>
-                    <img src="./public/images/iPhone 11 64GB I Chính hãng VNA.png"  class="mb-2" alt="">
-                    <p class="mb-2">iPhone 11 64GB I Chính hãng VNA</p>
-                    <label class="text-red-700 pr-4">10.790.000 ₫</label><label class="text-gray-400">18.000.000 ₫</label>
-                    <p class="bg-gray-100 p-3 mt-2">[HOT] Thu cũ lên đời giá cao - Thủ tục nhanh - Trợ giá lên tới 1.000.000đ</p>
-                </div>
+                ${data.map((item) => {
+                    return ` 
+                    <a href="/detail">
+                    <div>
+                        <img src="${item.image}"  class="mb-2" alt="">
+                        <p class="mb-2">${item.name}</p>
+                        <label class="text-red-700 pr-4">${item.saleOffPrice} ₫</label><label class="text-gray-400">${item.originalPrice} ₫</label>
+                        <p class="bg-gray-100 p-3 mt-2">${item.shortDescription}</p>
+                    </div>
+                    </a>
+                    `
+                }).join('')}
                 </div>
                 <div class="phukien mx-[100px]">
                 <div class="grid grid-cols-2 mb-5 ">
