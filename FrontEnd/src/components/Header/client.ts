@@ -9,9 +9,9 @@ const ClientHeader = {
 				</label>
 				<div class="mt-2 mr-10 text-white flex ">
 					<a href="#" class="mr-10"><p>Gọi mua hàng</p><p>1800.2097</p></a>
-					<a href="#" class="mr-10"><img src="./public/images/cuahangganban.png" class="h-8 w-8 " alt=""><p>Cửa hàng gần bạn</p></a>
-					<a href="#" class="mr-10"><img src="./public/images/shipped_80px.png" class="h-8 w-8 " alt=""><p>Tra cứu đơn hàng</p></a>
-					<a href="#" class="mr-10"><img src="./public/images/add_shopping_cart_80px.png" class="h-8 w-8 " alt=""><p>Giỏ hàng</p></a>
+					<a href="#" class="mr-10"><img src="../public/images/cuahangganban.png" class="h-8 w-8 " alt=""><p>Cửa hàng gần bạn</p></a>
+					<a href="#" class="mr-10"><img src="../public/images/shipped_80px.png" class="h-8 w-8 " alt=""><p>Tra cứu đơn hàng</p></a>
+					<a href="#" class="mr-10"><img src="../public/images/add_shopping_cart_80px.png" class="h-8 w-8 " alt=""><p>Giỏ hàng</p></a>
 				</div>
 			</div>
             `

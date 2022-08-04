@@ -14,10 +14,10 @@ const ClientFooter = {
                     <div>
                     <h6 class="text-lg mt-2">Phương thức thanh toán</h6>
                     <div class="flex mt-2">
-                        <img src="./public/images/thanhtoan1.png" alt="">
-                        <img src="./public/images/thanhtoan2.png" alt="">
-                        <img src="./public/images/thanhtoan3.png" alt="">
-                        <img src="./public/images/thanhtoan4.png" alt="">
+                        <img src="../public/images/thanhtoan1.png" alt="">
+                        <img src="../public/images/thanhtoan2.png" alt="">
+                        <img src="../public/images/thanhtoan3.png" alt="">
+                        <img src="../public/images/thanhtoan4.png" alt="">
                     </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@ const ClientFooter = {
                     <h6 class="text-lg">Đối tác dịch vụ bảo hành</h6>
                     <p class="mt-2">Điện Thoại - Máy tính</p>
                     <h6 class="text-lg ">Trung tâm bảo hành uỷ quyền Apple</h6>
-                    <img class="mt-2" src="./public/images/dienthoaivui.png" alt="">
+                    <img class="mt-2" src="../public/images/dienthoaivui.png" alt="">
                 </div>
                 <div>
                     <p>Mua hàng và thanh toán Online</p>
