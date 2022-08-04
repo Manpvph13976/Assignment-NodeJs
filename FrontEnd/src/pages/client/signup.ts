@@ -1,3 +1,4 @@
+import { signup } from "../../api/User"
 const Signup = {
    render: () => {
       return /*html*/`
@@ -31,7 +32,9 @@ const Signup = {
           >
             Đăng Ký
           </button>
-          
+         <div class="flex justify-center items-center mt-8">
+             <a href="/signin" class="text-red-400 underline">Đăng nhập</a>
+         </div>
         </form>
         <div class="flex justify-center items-center ">
           <img src="./public/images/logo.png" alt="" />
@@ -39,6 +42,52 @@ const Signup = {
       </div>
     </div>
       `
+   },
+   afterRender: async () => {
+      $("#signup").validate({
+        rules: {
+          email: {
+            required: true,
+            email: true
+          },
+          phone: {
+            number: true,
+            required: true
+          },
+          password: {
+            required: true,
+            minlength: 6
+          }
+        },
+        messages: {
+           email: {
+            required: "Email entry required",
+            email: "Account name must be email"
+          },
+          phone: {
+            number: "Please enter the number",
+            required: "Phone entry required"
+          },
+          password: {
+            required: "Please enter the password",
+            minlength: "Number of characters greater than 6"
+          }
+        },
+        submitHandler: async () => {
+          const user = {
+            email : document.querySelector('#email')?.value,
+            phone : document.querySelector('#phone')?.value,
+            password : document.querySelector('#password')?.value,
+          }
+          try {
+           signup(user)
+              alert("Register success")
+              location.href = "/signin"
+          } catch (error) {
+            error
+          }
+        }
+      })
    }
 }
 export default Signup
