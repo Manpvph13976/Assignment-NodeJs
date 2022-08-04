@@ -1,7 +1,8 @@
-import { getAll } from "../../api/product"
+import { getAll, remove } from "../../api/product"
 import AdminHeader from "../../components/Header/admin"
 import Sidebar from "../../components/Sidebar/admin"
 import Product from "../../model/product"
+import reRender from "../../ultilities/reRender"
 
 const AdminPage = {
     render: async () => {
@@ -60,7 +61,7 @@ const AdminPage = {
                             <td class="border"><img src="${item.image}"/></td>
                             <td class="border">${item.description}</td>
                             <td class="border">
-                            <button class="btn btn-remove ml-4"><svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <button class="btn btn-remove ml-4" data-id=${item.id}><svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M6 0.25C5.58579 0.25 5.25 0.585786 5.25 1V1.75H1C0.585786 1.75 0.25 2.08579 0.25 2.5C0.25 2.91421 0.585786 3.25 1 3.25H15C15.4142 3.25 15.75 2.91421 15.75 2.5C15.75 2.08579 15.4142 1.75 15 1.75H10.75V1C10.75 0.585786 10.4142 0.25 10 0.25H6Z" fill="black"/>
                             <path d="M6 8.64999C6.41421 8.64999 6.75 8.98578 6.75 9.39999L6.75 16.4C6.75 16.8142 6.41421 17.15 6 17.15C5.58579 17.15 5.25 16.8142 5.25 16.4L5.25 9.39999C5.25 8.98578 5.58579 8.64999 6 8.64999Z" fill="black"/>
                             <path d="M10.75 9.39999C10.75 8.98578 10.4142 8.64999 10 8.64999C9.58579 8.64999 9.25 8.98578 9.25 9.39999V16.4C9.25 16.8142 9.58579 17.15 10 17.15C10.4142 17.15 10.75 16.8142 10.75 16.4V9.39999Z" fill="black"/>
@@ -79,7 +80,23 @@ const AdminPage = {
             </div>
         </div>
         `
-    }
+    },
+    afterRender() {
+        const btns = document.querySelectorAll('table .btn'); 
+        for (let btn of btns) {
+            const id = btn.dataset.id;
+            btn.addEventListener('click', async function () {
+                if (btn.classList.contains('btn-remove')) {
+                    const confirm = window.confirm('Bạn có chắc chắn xóa không?');
+                    if (confirm) {
+                        await remove(id);
+                        reRender('app', AdminPage);
+                    }
+                }
+            });
+        }
+        
+    },
 
 }
 

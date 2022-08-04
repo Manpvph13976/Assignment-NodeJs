@@ -33,17 +33,6 @@
       "feature": "bbbbbbbb",
       "description": "ccccccccc",
       "shortDescription": "aaaaaa"
-    },
-    {
-      "id": 5,
-      "name": "Asus1",
-      "originalPrice": "123.124aaaaa",
-      "imageUrl": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658558710/anhhtus/kux4xgtsxtbz9vj1wbxw.png",
-      "saleOffPrice": "789",
-      "category": "iphone",
-      "feature": "aaaaaa",
-      "description": "bbbbbb",
-      "shortDescription": "cccccccc"
     }
   ]
 }
