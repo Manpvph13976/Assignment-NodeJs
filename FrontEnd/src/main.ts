@@ -22,8 +22,9 @@ router.on({
     "/": () => {
         print(HomePage)
     },
-    "/detail": () => {
-        print(Detail)
+    "/detail/:id": (data) => {
+        const id = data.data.id
+        print(Detail,id)
     },
     "/signup": () => {
         print(Signup)

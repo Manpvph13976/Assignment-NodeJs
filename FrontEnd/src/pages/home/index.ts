@@ -18,7 +18,7 @@ const HomePage = {
                 <div class="grid grid-cols-5 gap-6 m-10">
                 ${data.map((item) => {
                     return ` 
-                    <a href="/detail">
+                    <a href="/detail/${item._id}">
                     <div>
                         <img src="${item.image}"  class="mb-2" alt="">
                         <p class="mb-2">${item.name}</p>
