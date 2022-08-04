@@ -16,7 +16,7 @@ const EditProductPage = {
             </div>
             <div class="grow">
                 <h3 class="font-bold">Cập nhật sản phẩm</h3>
-                <div class="grid grid-cols-3 gap-8">
+                <form class="grid grid-cols-3 gap-8" id="editForm">
                 <div class="">
                     <div class="flex flex-col justify-center items-center border rounded-md h-[250px]">
                     <label htmlFor="">
@@ -32,22 +32,22 @@ const EditProductPage = {
                     <img id="preview-image" src="${products.image}" />
                     </div>
                     <label for="">Mô tả ngắn</label>
-                    <textarea class="w-full border" id="shortDescription">${products.shortDescription}</textarea>
+                    <textarea class="w-full border" id="shortDescription" name="shortDescription">${products.shortDescription}</textarea>
                 </div>
                 <div class="col-span-2">
                     <div>Thông tin sản phẩm</div>
                     <div class="flex flex-col mt-4">
                         <label for="">Tên sản phẩm:</label>
-                        <input id="name" type="text" placeholder="Tên sản phẩm" value="${products.name}" class="w-full border rounded-sm h-10">
+                        <input id="name" type="text" placeholder="Tên sản phẩm" name="name" value="${products.name}" class="w-full border rounded-sm h-10">
                     </div>
                     <div class="grid grid-cols-2 gap-4 mt-4">
                         <div class="flex flex-col">
                             <label for="">Giá gốc:</label>
-                            <input id="originalPrice" type="text" placeholder="Giá gốc" value="${products.originalPrice}" class="w-full border rounded-sm h-10">
+                            <input id="originalPrice" type="text" name="originalPrice" placeholder="Giá gốc" value="${products.originalPrice}" class="w-full border rounded-sm h-10">
                         </div>
                         <div class="flex flex-col">
                             <label for="">Giá khuyến mãi:</label>
-                            <input type="text" id="saleOffPrice" placeholder="Giá khuyến mãi" value="${products.saleOffPrice}" class="w-full border rounded-sm h-10">
+                            <input type="text" id="saleOffPrice" name="saleOffPrice" placeholder="Giá khuyến mãi" value="${products.saleOffPrice}" class="w-full border rounded-sm h-10">
                         </div>
                     </div>
                     <div class="flex flex-col mt-4">
@@ -62,26 +62,58 @@ const EditProductPage = {
                     </div>
                     <div class="flex flex-col mt-4">
                         <label for="">Đặc điểm nổi bật</label>
-                        <textarea class="w-full border" id="feature">${products.feature}</textarea>
+                        <textarea class="w-full border" id="feature" name="feature">${products.feature}</textarea>
                     </div>
                     <div class="flex flex-col mt-4">
                         <label for="">Mô tả dài</label>
-                        <textarea class="w-full border" id="description">${products.description}</textarea>
+                        <textarea class="w-full border" id="description" name="description">${products.description}</textarea>
                     </div>
                     <button class="border rounded-md bg-blue-400 mt-3 text-white" id="edit-product-btn">Cập nhật</button>
                 </div>
                 
-                </div>
+                </form>
             </div>
         </div>
         `
     },
     afterRender: async (id) => {
-        const editProductBtn = document.querySelector('#edit-product-btn')
         const inputFile = document.querySelector('#input-file')
         const previewImage = document.querySelector('#preview-image')
 
-        editProductBtn?.addEventListener('click', async () => {
+             $("#editForm").validate({
+            rules: {
+                 name: {
+                    required : true,
+                },
+                originalPrice: {
+                    required: true,
+                    number : true
+                },
+                feature : "required",
+                description : "required",
+                saleOffPrice : {
+                    required: true,
+                    number : true
+                },
+                shortDescription : "required"
+            },
+            messages: {
+                name: {
+                    required : "Vui lòng không để trống",
+                },
+                originalPrice: {
+                    required: "Vui lòng không để trống",
+                    number : "Vui lòng nhập số"
+                },
+                feature : "Vui lòng không để trống",
+                description : "Vui lòng không để trống",
+                saleOffPrice : {
+                    required: "Vui lòng không để trống",
+                    number : "Vui lòng nhập số"
+                },
+                shortDescription : "Vui lòng không để trống"
+            },
+            submitHandler: async () => {
             const product ={
                 id:id,
                 name : document.querySelector('#name')?.value,
@@ -93,13 +125,9 @@ const EditProductPage = {
                 description : document.querySelector('#description')?.value,
                 shortDescription : document.querySelector('#shortDescription')?.value,
             }
-            
-            try {
-                const data = await update(product)
-                alert('Cập nhật thành công')
+                update(product)
+                alert('Thêm mới thành công')
                 location.href = "/admin"
-            } catch(err) {
-                console.log(err)
             }
         })
 
