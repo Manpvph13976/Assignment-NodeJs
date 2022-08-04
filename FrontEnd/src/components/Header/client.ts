@@ -12,6 +12,7 @@ const ClientHeader = {
 					<a href="/admin" class="mr-10"><img src="../public/images/cuahangganban.png" class="h-8 w-8 " alt=""><p>Admin</p></a>
 					<a href="#" class="mr-10"><img src="../public/images/shipped_80px.png" class="h-8 w-8 " alt=""><p>Tra cứu đơn hàng</p></a>
 					<a href="#" class="mr-10"><img src="../public/images/add_shopping_cart_80px.png" class="h-8 w-8 " alt=""><p>Giỏ hàng</p></a>
+					<a href="/signin" class="mr-10"><img src="../public/images/user.svg" class="h-8 w-8 " alt=""><p>Smember</p></a>
 				</div>
 			</div>
             `

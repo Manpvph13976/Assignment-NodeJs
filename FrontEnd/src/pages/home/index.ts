@@ -6,28 +6,28 @@ import Product from "../../model/product"
 
 
 const HomePage = {
-	render: async () => {
+    render: async () => {
         const res = await getAll()
         const data: Product[] = res.data
-		return (
+        return (
             /*html*/`
                 ${ClientHeader.render()}
 				${ClientSidebar.render()}
                 <div class="product ">
-                <h1 class="ml-20 mt-10 text-lg ">ĐIỆN THOẠI NỔI BẬT NHẤT</h1>
+                <h1 class="mx-20 mt-10 text-lg ">ĐIỆN THOẠI NỔI BẬT NHẤT</h1>
                 <div class="grid grid-cols-5 gap-6 m-10">
                 ${data.map((item) => {
-                    return ` 
+            return ` 
                     <a href="/detail/${item._id}">
                     <div>
-                        <img src="${item.image}"  class="mb-2" alt="">
+                        <img src="${item.image}"  class="m-2 " alt="">
                         <p class="mb-2">${item.name}</p>
                         <label class="text-red-700 pr-4">${item.saleOffPrice} ₫</label><label class="text-gray-400">${item.originalPrice} ₫</label>
                         <p class="bg-gray-100 p-3 mt-2">${item.shortDescription}</p>
                     </div>
                     </a>
                     `
-                }).join('')}
+        }).join('')}
                 </div>
                 <div class="phukien mx-[100px]">
                 <div class="grid grid-cols-2 mb-5 ">
@@ -121,8 +121,8 @@ const HomePage = {
             </div>
 				${ClientFooter.render()}
             `
-		)
-	}
+        )
+    }
 }
 
 export default HomePage

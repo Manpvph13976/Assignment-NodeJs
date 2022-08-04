@@ -10,13 +10,13 @@ const AdminPage = {
         const data: Product[] = res.data
         return /*html*/`
         ${AdminHeader.render()}
-        <div class="flex mt-4 divide-x">
+        <div class="flex mt-4 divide-x mx-10">
             <div class="w-[250px] flex-none">
                 ${Sidebar.render()}
             </div> 
             <div class="grow px-4">
                 <div class="flex justify-between">
-                    <div class="font-bold">
+                    <div class="font-bold text-2xl">
                     Sản phẩm chung
                     </div>
                     <a href="/admin/add">
@@ -82,7 +82,7 @@ const AdminPage = {
         `
     },
     afterRender() {
-        const btns = document.querySelectorAll('table .btn'); 
+        const btns = document.querySelectorAll('table .btn');
         for (let btn of btns) {
             const id = btn.dataset.id;
             btn.addEventListener('click', async function () {
@@ -95,7 +95,7 @@ const AdminPage = {
                 }
             });
         }
-        
+
     },
 
 }

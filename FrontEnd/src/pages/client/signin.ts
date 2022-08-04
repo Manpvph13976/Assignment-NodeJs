@@ -1,7 +1,7 @@
 
 const Signin = {
-    render: async () => {
-       return /*html*/`
+  render: async () => {
+    return /*html*/`
           <div class="flex justify-center items-center bg-gray-100 h-[100vh]">
        <div class="w-[800px] bg-white flex justify-around p-8">
          <form class="w-[400px]" id="signup">
@@ -35,13 +35,18 @@ const Signin = {
                ><img src="./public/images/gg.png" alt="" class="w-[80%]"
              /></a>
            </div>
+           <p class="text-center">Bạn chưa có tài khoản? <a href="/signup" class="text-indigo-600 font-medium inline-flex space-x-1 items-center"><span>Đăng Ký tài khoản mới </span><span><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg></span></a></p>
          </form>
          <div class="flex justify-center items-center">
-           <img src="./public/images/logo.png" alt="" />
+         <a href="/"
+         ><img src="./public/images/logo.png" alt="" /></a>
          </div>
        </div>
+       
      </div>
        `
-    }
+  }
 }
 export default Signin

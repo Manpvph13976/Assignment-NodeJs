@@ -10,7 +10,7 @@ const CategoryPage = {
         const data: Product[] = res.data
         return /*html*/`
         ${AdminHeader.render()}
-        <div class="flex mt-4 divide-x">
+        <div class="flex mt-4 divide-x ml-5">
             <div class="w-[250px] flex-none">
                 ${Sidebar.render()}
             </div> 
