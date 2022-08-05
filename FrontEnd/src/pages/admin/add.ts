@@ -1,3 +1,4 @@
+import { getAll } from "../../api/category"
 import { upload } from "../../api/image"
 import { add } from "../../api/product"
 import AdminHeader from "../../components/Header/admin"
@@ -5,7 +6,9 @@ import Sidebar from "../../components/Sidebar/admin"
 import Product from "../../model/product"
 
 const AddProductPage = {
-    render: () => {
+    render: async () => {
+        const dataCategory = await getAll()
+        const category = dataCategory.data
         return /*html*/`
         ${AdminHeader.render()}
         <div class="flex mt-4 divide-x">
@@ -54,12 +57,13 @@ const AddProductPage = {
                     </div>
                     <div class="flex flex-col mt-4">
                         <label for="">Danh mục:</label>
-                        <select name="" id="category" class="w-full border rounded-sm h-10">
-                            <option value="62ea367bc462014774f577aa">Iphone</option>
-                            <option value="62ea3696c462014774f577ad">Samsung</option>
-                            <option value="62ea369ac462014774f577af">Xiaomi</option>
-                            <option value="62ea369dc462014774f577b1">Oppo</option>
-                        </select>
+                        <select id="category" class="w-full border rounded-sm h-10">
+                       ${category.map((item) => {
+                         return `
+                              <option value="${item._id}">${item.name}</option>
+                         `
+                       }).join("")}
+                       </select>
                     </div>
                     <div class="flex flex-col mt-4">
                         <label for="">Đặc điểm nổi bật</label>
