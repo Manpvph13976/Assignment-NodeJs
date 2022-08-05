@@ -1,17 +1,15 @@
-import { getAll, remove } from "../../api/product"
+import { remove } from "../../api/product"
 import { get, getAllCate } from "../../api/category"
 import AdminHeader from "../../components/Header/admin"
 import Sidebar from "../../components/Sidebar/admin"
-import Product from "../../model/product"
 import reRender from "../../ultilities/reRender"
 import axios from "axios"
-
-const AdminPage = {
-    render: async () => {
-        const res = await getAll()
+const CategoryList = {
+    render: async (id) => {
+        const populateProduct = await get(id)
         const dataCategory = await getAllCate()
-        const data: Product[] = res.data
         const category = dataCategory.data
+        const data = populateProduct.data.products
         return /*html*/`
         ${AdminHeader.render()}
         <div class="flex mt-4 divide-x mx-10">
@@ -21,7 +19,7 @@ const AdminPage = {
             <div class="grow px-4">
                 <div class="flex justify-between">
                     <div class="font-bold text-2xl">
-                    Sản phẩm chung
+                    
                     </div>
                     <a href="/admin/add">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -33,9 +31,9 @@ const AdminPage = {
                     <label class="font-bold">Bộ lọc:</label>
                     <div>
                         Danh mục sản phẩm:
-                        <select  id="category" class="w-full border rounded-sm h-10">
+                        <select id="category" class="w-full border rounded-sm h-10">
                        ${category.map((item) => {
-            return `            <option selected hidden></option>
+            return `             <option selected hidden></option>
                               <option value="${item._id}">${item.name}</option>
                          `
         }).join("")}
@@ -106,9 +104,6 @@ const AdminPage = {
                 }
             });
         }
-
-    },
-
+    }
 }
-
-export default AdminPage
+export default CategoryList

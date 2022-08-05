@@ -2,7 +2,7 @@ import Category from "../model/category";
 import instance from "./instance";
 
 
-export const getAll = () => {
+export const getAllCate = () => {
     return instance.get("/category")
 }
 export const get = (id) => {

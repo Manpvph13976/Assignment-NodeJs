@@ -1,4 +1,4 @@
-import { getAll, remove } from "../../api/category"
+import { getAllCate, remove } from "../../api/category"
 import AdminHeader from "../../components/Header/admin"
 import Sidebar from "../../components/Sidebar/admin"
 import Product from "../../model/product"
@@ -6,7 +6,7 @@ import reRender from "../../ultilities/reRender"
 
 const CategoryPage = {
     render: async () => {
-        const res = await getAll()
+        const res = await getAllCate()
         const data: Product[] = res.data
         return /*html*/`
         ${AdminHeader.render()}
@@ -70,7 +70,7 @@ const CategoryPage = {
                     const confirm = window.confirm('Bạn có chắc chắn xóa không?');
                     if (confirm) {
                         await remove(id);
-                        reRender('app', AdminPage);
+                        reRender('app', CategoryPage);
                     }
                 }
             });
