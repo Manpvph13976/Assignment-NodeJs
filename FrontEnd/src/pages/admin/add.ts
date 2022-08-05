@@ -1,4 +1,4 @@
-import { getAll } from "../../api/category"
+import { getAllCate } from "../../api/category"
 import { upload } from "../../api/image"
 import { add } from "../../api/product"
 import AdminHeader from "../../components/Header/admin"
@@ -7,7 +7,7 @@ import Product from "../../model/product"
 
 const AddProductPage = {
     render: async () => {
-        const dataCategory = await getAll()
+        const dataCategory = await getAllCate()
         const category = dataCategory.data
         return /*html*/`
         ${AdminHeader.render()}

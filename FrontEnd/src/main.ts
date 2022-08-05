@@ -10,6 +10,7 @@ import EditProductPage from './pages/admin/edit'
 import CategoryPage from './pages/admin/category'
 import AddCategoryPage from './pages/admin/category-add'
 import EditCategoryPage from './pages/admin/category-edit'
+import CategoryList from './pages/admin/category-list'
 const router = new Navigo('/', { linksSelector: "a" })
 
 const print = async (component, id) => {
@@ -51,6 +52,10 @@ router.on({
     },
     "/category/add": () => {
         print(AddCategoryPage)
+    },
+    "/category/:id": (data) => {
+        const id = data.data.id
+        print(CategoryList, id)
     }
 })
 router.resolve()

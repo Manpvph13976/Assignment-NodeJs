@@ -1,4 +1,5 @@
 import { upload } from "../../api/image";
+import { getAllCate } from "../../api/category"
 import { get, update } from "../../api/product";
 import AdminHeader from "../../components/Header/admin";
 import Sidebar from "../../components/Sidebar/admin";
@@ -6,8 +7,10 @@ import Product from "../../model/product";
 
 const EditProductPage = {
     render: async (id) => {
-		const product = await get(id);
-		const products: Product[] = product.data
+        const product = await get(id);
+        const dataCategory = await getAllCate()
+        const products: Product[] = product.data
+        const category = dataCategory.data
         return /*html*/`
         ${AdminHeader.render()}
         <div class="flex mt-4 divide-x">
@@ -52,13 +55,14 @@ const EditProductPage = {
                     </div>
                     <div class="flex flex-col mt-4">
                         <label for="">Danh mục:</label>
-                        <select name="" id="category" class="w-full border rounded-sm h-10">
+                        <select id="category" class="w-full border rounded-sm h-10">
                             <option>${products.category}</option>
-                            <option value="iphone">Iphone</option>
-                            <option value="samsung">Samsung</option>
-                            <option value="xiaomi">Xiaomi</option>
-                            <option value="oppo">Oppo</option>
-                        </select>
+                            ${category.map((item) => {
+            return `
+                                   <option value="${item._id}">${item.name}</option>
+                              `
+        }).join("")}
+                            </select>
                     </div>
                     <div class="flex flex-col mt-4">
                         <label for="">Đặc điểm nổi bật</label>
@@ -80,51 +84,51 @@ const EditProductPage = {
         const inputFile = document.querySelector('#input-file')
         const previewImage = document.querySelector('#preview-image')
 
-             $("#editForm").validate({
+        $("#editForm").validate({
             rules: {
-                 name: {
-                    required : true,
+                name: {
+                    required: true,
                 },
                 originalPrice: {
                     required: true,
-                    number : true
+                    number: true
                 },
-                feature : "required",
-                description : "required",
-                saleOffPrice : {
+                feature: "required",
+                description: "required",
+                saleOffPrice: {
                     required: true,
-                    number : true
+                    number: true
                 },
-                shortDescription : "required"
+                shortDescription: "required"
             },
             messages: {
                 name: {
-                    required : "Vui lòng không để trống",
+                    required: "Vui lòng không để trống",
                 },
                 originalPrice: {
                     required: "Vui lòng không để trống",
-                    number : "Vui lòng nhập số"
+                    number: "Vui lòng nhập số"
                 },
-                feature : "Vui lòng không để trống",
-                description : "Vui lòng không để trống",
-                saleOffPrice : {
+                feature: "Vui lòng không để trống",
+                description: "Vui lòng không để trống",
+                saleOffPrice: {
                     required: "Vui lòng không để trống",
-                    number : "Vui lòng nhập số"
+                    number: "Vui lòng nhập số"
                 },
-                shortDescription : "Vui lòng không để trống"
+                shortDescription: "Vui lòng không để trống"
             },
             submitHandler: async () => {
-            const product ={
-                id:id,
-                name : document.querySelector('#name')?.value,
-                originalPrice : document.querySelector('#originalPrice')?.value,
-                imageUrl : previewImage?.src,
-                saleOffPrice : document.querySelector('#saleOffPrice')?.value,
-                category : document.querySelector('#category')?.value,
-                feature : document.querySelector('#feature')?.value,
-                description : document.querySelector('#description')?.value,
-                shortDescription : document.querySelector('#shortDescription')?.value,
-            }
+                const product = {
+                    id: id,
+                    name: document.querySelector('#name')?.value,
+                    originalPrice: document.querySelector('#originalPrice')?.value,
+                    imageUrl: previewImage?.src,
+                    saleOffPrice: document.querySelector('#saleOffPrice')?.value,
+                    category: document.querySelector('#category')?.value,
+                    feature: document.querySelector('#feature')?.value,
+                    description: document.querySelector('#description')?.value,
+                    shortDescription: document.querySelector('#shortDescription')?.value,
+                }
                 update(product)
                 alert('Thêm mới thành công')
                 location.href = "/admin"
@@ -136,13 +140,13 @@ const EditProductPage = {
             const reader = new FileReader()
             reader.readAsDataURL(file)
             reader.onloadend = async () => {
-                 try {
+                try {
                     const res = await upload(reader.result)
                     const data = res.data
                     previewImage.src = data.url
-                 } catch(err) {
+                } catch (err) {
                     console.log(err)
-                 }
+                }
             }
 
         })
