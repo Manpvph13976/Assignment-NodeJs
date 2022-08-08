@@ -1,10 +1,11 @@
+import { signin } from "../../api/User";
 
 const Signin = {
   render: async () => {
     return /*html*/`
           <div class="flex justify-center items-center bg-gray-100 h-[100vh]">
        <div class="w-[800px] bg-white flex justify-around p-8">
-         <form class="w-[400px]" id="signup">
+         <form class="w-[400px]" id="signin">
            <div class="mb-2">
              <label class="block text-xl font-normal">Email</label>
              <input
@@ -47,6 +48,28 @@ const Signin = {
        
      </div>
        `
+  },
+  afterRender() {
+    const formSignin = document.querySelector("#signin")
+    formSignin?.addEventListener("submit", async function (e) {
+      e.preventDefault()
+      try {
+        const user = {
+          email: document.querySelector("#email")?.value,
+          password: document.querySelector("#password")?.value
+        }
+        const result = await signin(user)
+        console.log(result);
+
+        if (result.data.user.role === 0) {
+          location.href = "/";
+        } else {
+          location.href = "/admin";
+        }
+      } catch (error) {
+        alert("Sai tài khoản hoặc mật khẩu")
+      }
+    })
   }
 }
 export default Signin
